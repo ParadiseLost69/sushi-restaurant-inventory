@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body
+    block sidebar 
+      h1 Sushi Belt
+      ul(class="header") 
+        li
+          a(href="/sushi") See all sushi
+        li
+          a(href="/sushi/create") Create new sushi
+
+    block content

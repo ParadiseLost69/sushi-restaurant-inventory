@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    h1=title 
+    a(href="/sushi") Go home
+    if sushi
+        p #{sushi.description}
+        p it costs ¥#{sushi.price}
+        a(href=`/sushi/${sushi.id}/delete`) Delete
+
+    else 
+        h1 the sushi you are looking for is not here.

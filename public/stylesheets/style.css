@@ -1,0 +1,52 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  color: rgb(255, 65, 65);
+  text-decoration: none;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.header * {
+  margin: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.create-sushi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sushi-form {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  place-self: center;
+}
+
+.sushi-form input {
+  margin-bottom: 1rem;
+}
+
+.sushi-list {
+  display: flex;
+  justify-content: center;
+}
+
+.sushi-list li {
+  margin: 1rem;
+  font-size: 1rem;
+  padding: 1rem;
+}

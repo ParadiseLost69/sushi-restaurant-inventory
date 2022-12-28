@@ -1,0 +1,14 @@
+extends layout 
+
+block content
+    h1 All sushi
+    ul(class="sushi-list")
+      each sushi in sushi_list
+        li
+          a(href=sushi.url) #{sushi.name}
+          
+  
+      else
+        li There are no Sushi.
+
+
