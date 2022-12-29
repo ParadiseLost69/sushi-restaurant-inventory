@@ -1,4 +1,4 @@
 ### Sushi Restaurant ###
-
-.env
+node_modules
+*.env
 
