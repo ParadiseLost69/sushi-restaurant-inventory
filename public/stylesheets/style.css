@@ -1,6 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+.header {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.15rem;
 }
 li {
   text-decoration: none;
@@ -22,6 +31,8 @@ a {
   font-weight: 600;
 }
 
+/* Create New Sushi */
+
 .create-sushi {
   display: flex;
   flex-direction: column;
@@ -36,8 +47,32 @@ a {
   place-self: center;
 }
 
-.sushi-form input {
+.sushi-form input,
+.sushi-form textarea,
+.sushi-form select {
   margin-bottom: 1rem;
+  border: 1px solid grey;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+}
+.sushi-form label {
+  margin-block: 0.5rem;
+}
+
+.submit-button {
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  color: white;
+  background-image: linear-gradient(
+    to left,
+    rgb(253, 44, 44),
+    rgb(255, 59, 59),
+    rgb(255, 80, 80)
+  );
+  width: 20%;
+  place-self: center;
 }
 
 .sushi-list {
@@ -49,4 +84,106 @@ a {
   margin: 1rem;
   font-size: 1rem;
   padding: 1rem;
+}
+
+/* Sushi Description */
+.sushi-description {
+  border: 4px solid red;
+  box-shadow: 10px 10px 0px red;
+  margin: 2rem;
+  width: 50%;
+  padding: 1rem;
+  line-height: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+.name {
+  place-self: center;
+  grid-column: 1;
+  grid-row: 1/5;
+}
+.description {
+}
+
+.price {
+}
+
+.stock {
+}
+.button-container {
+  grid-column: 1/3;
+  grid-row: 5;
+  justify-self: center;
+}
+.button-container button {
+  width: 10rem;
+}
+/* index Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex: 1 1 1;
+  border: 4px solid red;
+  box-shadow: 10px 10px 0px red;
+  margin: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 20rem;
+  padding: 1rem;
+  line-height: 1.3rem;
+}
+
+/* Category cards */
+.category-card {
+  display: flex;
+  flex: 1 1 1;
+  background-color: red;
+  color: white;
+  border: 4px solid black;
+  box-shadow: 10px 10px 0px black;
+  margin: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 20rem;
+  padding: 1rem;
+  line-height: 1.3rem;
+}
+
+/* Description Page */
+
+.delete-button,
+.update-button {
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  color: white;
+  background-image: linear-gradient(
+    to left,
+    rgb(253, 44, 44),
+    rgb(255, 59, 59),
+    rgb(255, 80, 80)
+  );
+  width: 20%;
+  place-self: center;
+  margin: 1rem;
+}
+
+/*delete*/
+
+.delete-container {
+  margin: 1rem;
+}
+.delete-container * {
+  margin: 1rem;
 }

@@ -1,7 +1,12 @@
 const Category = require("../models/category");
 
-exports.get_categories = (req, res) => {
-  res.render("categories", { title: "Categories" });
+exports.get_categories = (req, res, next) => {
+  Category.find({}, "name description").exec((err, results) => {
+    if (err) {
+      next(err);
+    }
+    res.render("categories", { title: "Categories", categories: results });
+  });
 };
 
 exports.get_category = (req, res) => {

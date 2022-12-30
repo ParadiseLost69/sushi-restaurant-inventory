@@ -7,7 +7,7 @@ block content
          label(for="name") Name 
          input#name(type="text" name="name" )
          label(for="description") Description 
-         input#description(type="text" name="description" )
+         textarea#description(type="text" name="description" rows=5)
          label(for="price") Price
          input#price(type="number" name="price" )
          label(for="category") Category 
@@ -18,7 +18,7 @@ block content
          label(for="stock") Stock
          input#stock(type="number" name="stock" )
 
-         button(type="submit") Submit
+         button(type="submit" class="submit-button") Submit
      if errors
          ul
            for error in errors

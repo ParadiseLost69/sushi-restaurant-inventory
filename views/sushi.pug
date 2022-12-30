@@ -2,10 +2,12 @@ extends layout
 
 block content
     h1 All sushi
-    ul(class="sushi-list")
+    div(class="cards")
       each sushi in sushi_list
-        li
-          a(href=sushi.url) #{sushi.name}
+        div.card
+          h2
+            a(href=sushi.url) #{sushi.name}
+          p ¥#{sushi.price}
           
   
       else

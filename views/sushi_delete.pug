@@ -2,11 +2,14 @@ extends layout
 
 block content 
     h1=title 
-    
-    form(action="" method="post")
-        h2 are you sure you want to delete ?
-        button(type="submit") Yes
-        a(href=`/sushi/${sushi.id}`) No take me back
+    div.cards
+        div.card
+            form(action="" method="post")
+
+                h2 Are you sure you want to delete ?
+                div.delete-container
+                    button(type="submit" class="submit-button") Yes
+                    a(href=`/sushi/${sushi.id}`) No take me back
 
     
 

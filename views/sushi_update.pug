@@ -1,17 +1,19 @@
 extends layout 
 block content 
-
-    h1 Update #{sushi.name}
-    
-    form(action="", method="post" class="sushi-form")
-        label(for="name") Name 
-        input#name(type="text" name="name" value=sushi.name )
-        label(for="description") Description 
-        input#description(type="text" name="description" value=sushi.description )
-        label(for="price") Price
-        input#price(type="number" name="price" value=sushi.price )
-        label(for="category") Category 
-        input#category(type="text" name="category" value=sushi.category )
-        label(for="stock") Stock
-        input#stock(type="number" name="stock" value=sushi.stock)  
-        button(type="submit") Submit
+    main.create-sushi
+        h1 Update #{sushi.name}
+        
+        form(action="", method="post" class="sushi-form")
+            label(for="name") Name 
+            input#name(type="text" name="name" value=sushi.name )
+            label(for="description") Description 
+            textarea#description(type="text" name="description" rows=5 ) #{sushi.description}
+            label(for="price") Price
+            input#price(type="number" name="price" value=sushi.price )
+            label(for="category") Category 
+            select#category(type="text" name="category")
+                each category in categories
+                    option(value=`${category._id}`) #{category.name} 
+            label(for="stock") Stock
+            input#stock(type="number" name="stock" value=sushi.stock)  
+            button(type="submit" class="submit-button") Submit

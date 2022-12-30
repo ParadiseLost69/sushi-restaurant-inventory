@@ -1,15 +1,20 @@
 extends layout 
 
 block content
-    h1=title 
     a(href="/sushi") Go home
     if sushi
-        p #{sushi.description}
-        p it costs ¥#{sushi.price}
-        p #{category.name}
-        p We have #{sushi.stock} of this sushi.
-        a(href=`/sushi/${sushi.id}/delete`) Delete
-        a(href=`/sushi/${sushi.id}/update`) Update 
+        div.cards
+            div.sushi-description
+                h1.name #{title}
+                p.description #{sushi.description}
+                p.price it costs ¥#{sushi.price}
+                p.category #{category.name}
+                p.stock We have #{sushi.stock} of this sushi.
+                div.button-container
+                    a(href=`/sushi/${sushi.id}/delete`)
+                        button.delete-button Delete
+                    a(href=`/sushi/${sushi.id}/update`)
+                        button.update-button Update 
 
     else 
         h1 the sushi you are looking for is not here.

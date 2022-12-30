@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 const async = require("async");
 
 exports.sushi_list = (req, res, next) => {
-  Sushi.find({}, "name description").exec(function (err, results) {
+  Sushi.find({}, "name price").exec(function (err, results) {
     if (err) {
       return next(err);
     }
@@ -48,11 +48,9 @@ exports.sushi_create_post = [
     .trim()
     .isLength({ min: 1 })
     .escape(),
-  //   body("description").trim().escape(),
-  //   body("stock").trim().escape(),
-  //   body("category").trim().escape(),
-  //   const sushi = new Sushi({ name: req.body.name });
-  //   Sushi.create(sushi);
+  body("description").trim().escape(),
+  body("stock").trim().escape(),
+
   //process the request after validation and sanitization
   (req, res, next) => {
     const errors = validationResult(req);
@@ -65,11 +63,18 @@ exports.sushi_create_post = [
     });
     if (!errors.isEmpty()) {
       console.log(errors.array());
-      res.render("create", {
-        title: "Add new sushi",
-        sushi,
-        errors: errors.array(),
+      Category.find({}, "name").exec((err, results) => {
+        if (err) {
+          next(err);
+        }
+        res.render("create", {
+          title: "Add new sushi",
+          sushi,
+          errors: errors.array(),
+          categories: results,
+        });
       });
+
       return;
     } else {
       Sushi.create(sushi);
@@ -93,11 +98,26 @@ exports.sushi_delete_post = (req, res) => {
 exports.sushi_update_get = (req, res, next) => {
   Sushi.findById(req.params.id, (err, results) => {
     if (err) {
-      return next(err);
+      next(err);
     }
-    res.render("sushi_update", { title: "Update the sushi", sushi: results });
+    Category.find({}, "name").exec((err2, results2) => {
+      if (err2) {
+        next(err2);
+      }
+      res.render("sushi_update", {
+        title: "Update Sushi",
+        sushi: results,
+        categories: results2,
+      });
+    });
   });
 };
+// Sushi.findById(req.params.id, (err, results) => {
+//   if (err) {
+//     return next(err);
+//   }
+//   res.render("sushi_update", { title: "Update the sushi", sushi: results });
+// });
 
 exports.sushi_update_post = (req, res, next) => {
   console.log(req.body.name);
