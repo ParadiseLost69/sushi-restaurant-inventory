@@ -11,7 +11,10 @@ block content
          label(for="price") Price
          input#price(type="number" name="price" )
          label(for="category") Category 
-         input#category(type="text" name="category" )
+         select#category(type="text" name="category")
+            each category in categories
+              option(value=`${category._id}`) #{category.name} 
+             
          label(for="stock") Stock
          input#stock(type="number" name="stock" )
 

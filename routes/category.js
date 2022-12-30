@@ -9,3 +9,5 @@ router.get("/:id", category_controller.get_category);
 router.get("/create", category_controller.get_category_create);
 
 router.post("create", category_controller.create_category);
+
+module.exports = router;

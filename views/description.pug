@@ -6,7 +6,7 @@ block content
     if sushi
         p #{sushi.description}
         p it costs ¥#{sushi.price}
-        p #{sushi.category}
+        p #{category.name}
         p We have #{sushi.stock} of this sushi.
         a(href=`/sushi/${sushi.id}/delete`) Delete
         a(href=`/sushi/${sushi.id}/update`) Update 

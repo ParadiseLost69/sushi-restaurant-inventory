@@ -1,5 +1,7 @@
 const Sushi = require("../models/sushi");
+const Category = require("../models/category");
 const { body, validationResult } = require("express-validator");
+const async = require("async");
 
 exports.sushi_list = (req, res, next) => {
   Sushi.find({}, "name description").exec(function (err, results) {
@@ -15,15 +17,26 @@ exports.sushi_detail = (req, res, next) => {
     if (err) {
       next(err);
     }
-    res.render("description", {
-      title: results ? results.name : "Nothing found",
-      sushi: results,
+    Category.findById(results.category, (err2, results2) => {
+      if (err2) {
+        next(err2);
+      }
+      res.render("description", {
+        title: results ? results.name : "Nothing found",
+        sushi: results,
+        category: results2,
+      });
     });
   });
 };
 
-exports.sushi_create_get = (req, res) => {
-  res.render("create");
+exports.sushi_create_get = (req, res, next) => {
+  Category.find({}, "name").exec((err, results) => {
+    if (err) {
+      next(err);
+    }
+    res.render("create", { categories: results });
+  });
 };
 
 exports.sushi_create_post = [
