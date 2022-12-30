@@ -1,3 +1,4 @@
+require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -11,8 +12,7 @@ const categoryRouter = require("./routes/category");
 
 const app = express();
 const mongoose = require("mongoose");
-const mongoDb =
-  "mongodb+srv://teddy:mD.gfJP5F-F.es4@blog.yeblop1.mongodb.net/sushirestaurant?retryWrites=true&w=majority";
+const mongoDb = `mongodb+srv://${process.env.MONGO_USER_PASS}@blog.yeblop1.mongodb.net/sushirestaurant?retryWrites=true&w=majority`;
 
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
