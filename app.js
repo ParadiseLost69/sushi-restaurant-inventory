@@ -10,7 +10,14 @@ const usersRouter = require("./routes/users");
 const sushiRouter = require("./routes/sushi");
 const categoryRouter = require("./routes/category");
 
+const compression = require("compression");
+const helmet = require("helmet");
+
 const app = express();
+
+app.use(compression()); // Compress all routes
+app.use(helmet());
+
 const mongoose = require("mongoose");
 const mongoDb = `mongodb+srv://${process.env.MONGO_USER_PASS}@blog.yeblop1.mongodb.net/sushirestaurant?retryWrites=true&w=majority`;
 
