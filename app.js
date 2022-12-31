@@ -19,7 +19,8 @@ app.use(compression()); // Compress all routes
 app.use(helmet());
 
 const mongoose = require("mongoose");
-const mongoDb = `mongodb+srv://${process.env.MONGO_USER_PASS}@blog.yeblop1.mongodb.net/sushirestaurant?retryWrites=true&w=majority`;
+// const mongoDb = `mongodb+srv://${process.env.MONGO_USER_PASS}@blog.yeblop1.mongodb.net/sushirestaurant?retryWrites=true&w=majority`;
+const mongoDb = process.env.MONGODB_URI
 
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
